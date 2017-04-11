@@ -59,7 +59,10 @@ namespace MyListTest
                 intList.Add(item);
             }
 
-            CollectionAssert.AreEqual(item, intList);
+            for (int i = 0; i < item.Length; i++)
+            {
+                Assert.AreEqual(item[i], intList[i]);
+            }
         }
         [TestMethod]
         public void SuccessfulMultipleStringAdd()
@@ -72,7 +75,10 @@ namespace MyListTest
                 stringList.Add(item);
             }
 
-            CollectionAssert.AreEqual(item, stringList);
+            for (int i = 0; i < item.Length; i++)
+            {
+                Assert.AreEqual(item[i], stringList[i]);
+            }
         }
         [TestMethod]
         public void SuccessfulMultipleObjAdd()
@@ -90,7 +96,10 @@ namespace MyListTest
                 objList.Add(item);
             }
 
-            CollectionAssert.AreEqual(item, objList);
+            for (int i = 0; i < item.Length; i++)
+            {
+                Assert.AreEqual(item[i], objList[i]);
+            }
         }
         [TestMethod]
         public void SuccessfulStressIntAdd()
@@ -107,7 +116,10 @@ namespace MyListTest
                 intList.Add(item);
             }
 
-            CollectionAssert.AreEqual(item, intList);
+            for (int i = 0; i < item.Length; i++)
+            {
+                Assert.AreEqual(item[i], intList[i]);
+            }
         }
 
 
@@ -235,7 +247,6 @@ namespace MyListTest
             }
 
             int result = intList.Remove();
-
             Assert.AreEqual(item[0], result);
         }
 
@@ -250,7 +261,7 @@ namespace MyListTest
 
             string result = intList.ToString();
 
-            Assert.AreEqual(item, result);
+            Assert.AreEqual(item.ToString(), result);
         }
         [TestMethod]
         public void SingleDoubleToString()
@@ -331,8 +342,10 @@ namespace MyListTest
             intList2.Add(item[9]);
 
             MyList<int> result = intList1 + intList2;
-
-            CollectionAssert.AreEqual(item, result);
+            for (int i = 0; i < item.Length; i++)
+            {
+                Assert.AreEqual(item[i], result[i]);
+            }
         }
         [TestMethod]
         public void SuccessfulIntFirstLargerOpAdd()
@@ -358,7 +371,10 @@ namespace MyListTest
 
             MyList<int> result = intList1 + intList2;
 
-            CollectionAssert.AreEqual(item, result);
+            for (int i = 0; i < item.Length; i++)
+            {
+                Assert.AreEqual(item[i], result[i]);
+            }
         }
         [TestMethod]
         public void SuccessfulIntSecondLargerOpAdd()
@@ -385,7 +401,10 @@ namespace MyListTest
 
             MyList<int> result = intList1 + intList2;
 
-            CollectionAssert.AreEqual(item, result);
+            for (int i = 0; i < item.Length; i++)
+            {
+                Assert.AreEqual(item[i], result[i]);
+            }
         }
         [TestMethod]
         public void SuccessfulIntSingleElementOpAdd()
@@ -402,7 +421,10 @@ namespace MyListTest
 
             MyList<int> result = intList1 + intList2;
 
-            CollectionAssert.AreEqual(item, result);
+            for (int i = 0; i < item.Length; i++)
+            {
+                Assert.AreEqual(item[i], result[i]);
+            }
         }
         [TestMethod]
         public void SuccessfulIntFirstEmptyOpAdd()
@@ -418,7 +440,10 @@ namespace MyListTest
 
             MyList<int> result = intList1 + intList2;
 
-            CollectionAssert.AreEqual(item, result);
+            for (int i = 0; i < item.Length; i++)
+            {
+                Assert.AreEqual(item[i], result[i]);
+            }
         }
         [TestMethod]
         public void SuccessfulIntSecondEmptyOpAdd()
@@ -433,12 +458,15 @@ namespace MyListTest
 
             MyList<int> result = intList1 + intList2;
 
-            CollectionAssert.AreEqual(item, result);
+            for (int i = 0; i < item.Length; i++)
+            {
+                Assert.AreEqual(item[i], result[i]);
+            }
         }
         [TestMethod]
         public void SuccessfulIntBothEmptyOpAdd()
         {
-            int[] item = new int[] {};
+            int item = 0;
 
             MyList<int> intList1 = new MyList<int>();
 
@@ -447,7 +475,7 @@ namespace MyListTest
 
             MyList<int> result = intList1 + intList2;
 
-            CollectionAssert.AreEqual(item, result);
+            Assert.AreEqual(item, result);
         }
         [TestMethod]
         public void SuccessfulStringEqualSizeOpAdd()
@@ -468,7 +496,10 @@ namespace MyListTest
 
             MyList<string> result = stringList1 + stringList2;
 
-            CollectionAssert.AreEqual(item, result);
+            for (int i = 0; i < item.Length; i++)
+            {
+                Assert.AreEqual(item[i], result[i]);
+            }
         }
         [TestMethod]
         public void SuccessfulStringFirstLargerOpAdd()
@@ -490,7 +521,10 @@ namespace MyListTest
 
             MyList<string> result = stringList1 + stringList2;
 
-            CollectionAssert.AreEqual(item, result);
+            for (int i = 0; i < item.Length; i++)
+            {
+                Assert.AreEqual(item[i], result[i]);
+            }
         }
         [TestMethod]
         public void SuccessfulStringSecondLargerOpAdd()
@@ -513,7 +547,10 @@ namespace MyListTest
 
             MyList<string> result = stringList1 + stringList2;
 
-            CollectionAssert.AreEqual(item, result);
+            for (int i = 0; i < item.Length; i++)
+            {
+                Assert.AreEqual(item[i], result[i]);
+            }
         }
         [TestMethod]
         public void SuccessfulStringSingleElementOpAdd()
@@ -528,7 +565,10 @@ namespace MyListTest
 
             MyList<string> result = stringList1 + stringList2;
 
-            CollectionAssert.AreEqual(item, result);
+            for (int i = 0; i < item.Length; i++)
+            {
+                Assert.AreEqual(item[i], result[i]);
+            }
         }
         [TestMethod]
         public void SuccessfulStringFirstEmptyOpAdd()
@@ -544,7 +584,10 @@ namespace MyListTest
 
             MyList<string> result = stringList1 + stringList2;
 
-            CollectionAssert.AreEqual(item, result);
+            for (int i = 0; i < item.Length; i++)
+            {
+                Assert.AreEqual(item[i], result[i]);
+            }
         }
         [TestMethod]
         public void SuccessfulStringSecondEmptyOpAdd()
@@ -560,12 +603,15 @@ namespace MyListTest
 
             MyList<string> result = stringList1 + stringList2;
 
-            CollectionAssert.AreEqual(item, result);
+            for (int i = 0; i < item.Length; i++)
+            {
+                Assert.AreEqual(item[i], result[i]);
+            }
         }
         [TestMethod]
         public void SuccessfulStringBothEmptyOpAdd()
         {
-            string[] item = new string[] { };
+            string item = "";
 
             MyList<string> stringList1 = new MyList<string>();
 
@@ -574,7 +620,7 @@ namespace MyListTest
 
             MyList<string> result = stringList1 + stringList2;
 
-            CollectionAssert.AreEqual(item, result);
+            Assert.AreEqual(item, result);
         }
         [TestMethod]
         public void SuccessfulObjEqualSizeOpAdd()
@@ -608,8 +654,10 @@ namespace MyListTest
 
             MyList<Person> result = objList1 + objList2;
 
-
-            CollectionAssert.AreEqual(item, result);
+            for (int i = 0; i < item.Length; i++)
+            {
+                Assert.AreEqual(item[i], result[i]);
+            }
         }
         [TestMethod]
         public void SuccessfulObjFirstLargerOpAdd()
@@ -643,8 +691,10 @@ namespace MyListTest
 
             MyList<Person> result = objList1 + objList2;
 
-
-            CollectionAssert.AreEqual(item, result);
+            for (int i = 0; i < item.Length; i++)
+            {
+                Assert.AreEqual(item[i], result[i]);
+            }
         }
         [TestMethod]
         public void SuccessfulObjSecondLargerOpAdd()
@@ -678,8 +728,10 @@ namespace MyListTest
 
             MyList<Person> result = objList1 + objList2;
 
-
-            CollectionAssert.AreEqual(item, result);
+            for (int i = 0; i < item.Length; i++)
+            {
+                Assert.AreEqual(item[i], result[i]);
+            }
         }
         [TestMethod]
         public void SuccessfulObjSingleElementOpAdd()
@@ -699,8 +751,10 @@ namespace MyListTest
 
             MyList<Person> result = objList1 + objList2;
 
-
-            CollectionAssert.AreEqual(item, result);
+            for (int i = 0; i < item.Length; i++)
+            {
+                Assert.AreEqual(item[i], result[i]);
+            }
         }
         [TestMethod]
         public void SuccessfulObjSecondEmptyOpAdd()
@@ -717,8 +771,10 @@ namespace MyListTest
 
             MyList<Person> result = objList1 + objList2;
 
-
-            CollectionAssert.AreEqual(item, result);
+            for (int i = 0; i < item.Length; i++)
+            {
+                Assert.AreEqual(item[i], result[i]);
+            }
         }
         [TestMethod]
         public void SuccessfulObjFirstEmptyOpAdd()
@@ -736,15 +792,14 @@ namespace MyListTest
 
             MyList<Person> result = objList1 + objList2;
 
-
-            CollectionAssert.AreEqual(item, result);
+            for (int i = 0; i < item.Length; i++)
+            {
+                Assert.AreEqual(item[i], result[i]);
+            }
         }
         [TestMethod]
         public void SuccessfulObjBothEmptyOpAdd()
         {
-
-            Person[] item = new Person[] {};
-
             MyList<Person> objList1 = new MyList<Person>();
 
             MyList<Person> objList2 = new MyList<Person>();
@@ -752,7 +807,7 @@ namespace MyListTest
             MyList<Person> result = objList1 + objList2;
 
 
-            CollectionAssert.AreEqual(item, result);
+            Assert.IsNull(result);
         }
 
         //Testing - operator 
@@ -777,7 +832,10 @@ namespace MyListTest
 
             MyList<int> result = intList1 - intList2;
 
-            CollectionAssert.AreEqual(evens, result);
+            for (int i = 0; i < evens.Length; i++)
+            {
+                Assert.AreEqual(evens[i], result[i]);
+            }
         }
         [TestMethod]
         public void SuccessfulIntNoMatchOpSub()
@@ -800,7 +858,10 @@ namespace MyListTest
 
             MyList<int> result = intList1 - intList2;
 
-            CollectionAssert.AreEqual(evens, result);
+            for (int i = 0; i < evens.Length; i++)
+            {
+                Assert.AreEqual(evens[i], result[i]);
+            }
         }
         [TestMethod]
         public void SuccessfulIntSecondEmptyOpSub()
@@ -820,7 +881,10 @@ namespace MyListTest
 
             MyList<int> result = intList1 - intList2;
 
-            CollectionAssert.AreEqual(numbers, result);
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                Assert.AreEqual(numbers[i], result[i]);
+            }
         }
         [TestMethod]
         public void SuccessfulIntFirstEmptyOpSub()
@@ -828,7 +892,7 @@ namespace MyListTest
             int[] numbers = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
             int[] evens = new int[] { 2, 4, 6, 8, 10 };
             int[] odds = new int[] { 1, 3, 5, 7, 9 };
-            int[] empty = new int[0];
+            int empty = 0;
 
             MyList<int> intList1 = new MyList<int>();
 
@@ -840,12 +904,12 @@ namespace MyListTest
 
             MyList<int> result = intList1 - intList2;
 
-            CollectionAssert.AreEqual(empty, result);
+            Assert.AreEqual(empty, result);
         }
         [TestMethod]
         public void SuccessfulIntBothEmptyOpSub()
         {
-            int[] empty = new int[0];
+            int empty = 0;
 
             MyList<int> intList1 = new MyList<int>();
 
@@ -854,7 +918,7 @@ namespace MyListTest
 
             MyList<int> result = intList1 - intList2;
 
-            CollectionAssert.AreEquivalent(empty, result);
+            Assert.AreEqual(empty, result);
         }
         [TestMethod]
         public void SuccessfulStringOpSub()
@@ -879,7 +943,10 @@ namespace MyListTest
 
             MyList<string> result = stringList1 - stringList2;
 
-            CollectionAssert.AreEqual(boys, result);
+            for (int i = 0; i < boys.Length; i++)
+            {
+                Assert.AreEqual(boys[i], result[i]);
+            }
         }
         [TestMethod]
         public void SuccessfulStringNoMatchOpSub()
@@ -904,7 +971,10 @@ namespace MyListTest
 
             MyList<string> result = stringList1 - stringList2;
 
-            CollectionAssert.AreEqual(boys, result);
+            for (int i = 0; i < boys.Length; i++)
+            {
+                Assert.AreEqual(boys[i], result[i]);
+            }
         }
         [TestMethod]
         public void SuccessfulStringSecondEmptyOpSub()
@@ -925,7 +995,10 @@ namespace MyListTest
 
             MyList<string> result = stringList1 - stringList2;
 
-            CollectionAssert.AreEqual(names, result);
+            for (int i = 0; i < names.Length; i++)
+            {
+                Assert.AreEqual(names[i], result[i]);
+            }
         }
         [TestMethod]
         public void SuccessfulStringFirstEmptyOpSub()
@@ -933,12 +1006,9 @@ namespace MyListTest
             string[] names = new string[] { "Jason", "Bob", "Michelle", "Lucas", "Frank", "Mike", "Jose", "Patricia" };
             string[] boys = new string[] { "Jason", "Bob", "Lucas", "Frank", "Mike", "Jose" };
             string[] girls = new string[] { "Michelle", "Patricia" };
-            string[] empty = new string[] { };
-
-
+            string empty = "";
 
             MyList<string> stringList1 = new MyList<string>();
-
 
             MyList<string> stringList2 = new MyList<string>();
             for (int i = 0; i < names.Length; i++)
@@ -946,16 +1016,15 @@ namespace MyListTest
                 stringList2.Add(names[i]);
             }
 
-
             MyList<string> result = stringList1 - stringList2;
 
-            CollectionAssert.AreEqual(empty, result);
+            Assert.AreEqual(empty, result);
         }
         [TestMethod]
         public void SuccessfulStringBothEmptyOpSub()
         {
 
-            string[] empty = new string[] { };
+            string empty = "";
 
             MyList<string> stringList1 = new MyList<string>();
 
@@ -964,7 +1033,7 @@ namespace MyListTest
 
             MyList<string> result = stringList1 - stringList2;
 
-            CollectionAssert.AreEqual(empty, result);
+            Assert.AreEqual(empty, result);
         }
         [TestMethod]
         public void SuccessfulObjOpSub()
@@ -998,8 +1067,10 @@ namespace MyListTest
 
             MyList<Person> result = objList1 - objList2;
 
-
-            CollectionAssert.AreEqual(boys, result);
+            for (int i = 0; i < boys.Length; i++)
+            {
+                Assert.AreEqual(boys[i], result[i]);
+            }
         }
         [TestMethod]
         public void SuccessfulObjNoMatchOpSub()
@@ -1033,8 +1104,10 @@ namespace MyListTest
 
             MyList<Person> result = objList1 - objList2;
 
-
-            CollectionAssert.AreEqual(boys, result);
+            for (int i = 0; i < boys.Length; i++)
+            {
+                Assert.AreEqual(boys[i], result[i]);
+            }
         }
         [TestMethod]
         public void SuccessfulObjSecondEmptyOpSub()
@@ -1064,8 +1137,10 @@ namespace MyListTest
 
             MyList<Person> result = objList1 - objList2;
 
-
-            CollectionAssert.AreEqual(people, result);
+            for (int i = 0; i < people.Length; i++)
+            {
+                Assert.AreEqual(people[i], result[i]);
+            }
         }
         [TestMethod]
         public void SuccessfulObjFirstEmptyOpSub()
@@ -1094,7 +1169,7 @@ namespace MyListTest
 
             MyList<Person> result = objList1 - objList2;
 
-            CollectionAssert.AreEqual(empty, result);
+            Assert.IsNull(result);
         }
         [TestMethod]
         public void SuccessfulObjBothEmptyOpSub()
@@ -1107,7 +1182,7 @@ namespace MyListTest
 
             MyList<Person> result = objList1 - objList2;
 
-            CollectionAssert.AreEqual(empty, result);
+            Assert.IsNull(result);
         }
 
         //Testing Count Method
@@ -1234,7 +1309,10 @@ namespace MyListTest
 
             MyList<int> result = intList1.Zip(intList2);
 
-            CollectionAssert.AreEqual(numbers, result);
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                Assert.AreEqual(numbers[i], result[i]);
+            }
         }
         [TestMethod]
         public void SuccessfulIntFirstLargerZip()
@@ -1257,7 +1335,10 @@ namespace MyListTest
 
             MyList<int> result = intList1.Zip(intList2);
 
-            CollectionAssert.AreEqual(numbers, result);
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                Assert.AreEqual(numbers[i], result[i]);
+            }
         }
         [TestMethod]
         public void SuccessfulIntSecondLargerZip()
@@ -1280,7 +1361,10 @@ namespace MyListTest
 
             MyList<int> result = intList1.Zip(intList2);
 
-            CollectionAssert.AreEqual(numbers, result);
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                Assert.AreEqual(numbers[i], result[i]);
+            }
         }
         [TestMethod]
         public void SuccessfulIntSecondEmptyZip()
@@ -1297,7 +1381,10 @@ namespace MyListTest
 
             MyList<int> result = intList1.Zip(intList2);
 
-            CollectionAssert.AreEqual(numbers, result);
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                Assert.AreEqual(numbers[i], result[i]);
+            }
         }
         [TestMethod]
         public void SuccessfulIntFirstEmptyZip()
@@ -1314,7 +1401,10 @@ namespace MyListTest
 
             MyList<int> result = intList1.Zip(intList2);
 
-            CollectionAssert.AreEqual(numbers, result);
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                Assert.AreEqual(numbers[i], result[i]);
+            }
         }
         [TestMethod]
         public void SuccessfulStringZip()
@@ -1339,7 +1429,10 @@ namespace MyListTest
 
             MyList<string> result = stringList1.Zip(stringList2);
 
-            CollectionAssert.AreEqual(names, result);
+            for (int i = 0; i < names.Length; i++)
+            {
+                Assert.AreEqual(names[i], result[i]);
+            }
         }
         [TestMethod]
         public void SuccessfulStringFirstLargerZip()
@@ -1364,7 +1457,10 @@ namespace MyListTest
 
             MyList<string> result = stringList1.Zip(stringList2);
 
-            CollectionAssert.AreEqual(names, result);
+            for (int i = 0; i < names.Length; i++)
+            {
+                Assert.AreEqual(names[i], result[i]);
+            }
         }
         [TestMethod]
         public void SuccessfulStringSecondLargerZip()
@@ -1388,7 +1484,10 @@ namespace MyListTest
 
             MyList<string> result = stringList1.Zip(stringList2);
 
-            CollectionAssert.AreEqual(names, result);
+            for (int i = 0; i < names.Length; i++)
+            {
+                Assert.AreEqual(names[i], result[i]);
+            }
         }
         [TestMethod]
         public void SuccessfulStringSecondEmptyZip()
@@ -1405,7 +1504,10 @@ namespace MyListTest
 
             MyList<string> result = stringList1.Zip(stringList2);
 
-            CollectionAssert.AreEqual(names, result);
+            for (int i = 0; i < names.Length; i++)
+            {
+                Assert.AreEqual(names[i], result[i]);
+            }
         }
         [TestMethod]
         public void SuccessfulStringFirstEmptyZip()
@@ -1422,12 +1524,15 @@ namespace MyListTest
 
             MyList<string> result = stringList1.Zip(stringList2);
 
-            CollectionAssert.AreEqual(names, result);
+            for (int i = 0; i < names.Length; i++)
+            {
+                Assert.AreEqual(names[i], result[i]);
+            }
         }
         [TestMethod]
         public void SuccessfulStringBothEmptyZip()
         {
-            string[] empty = new string[] {  };
+            string empty = "";
 
             MyList<string> stringList1 = new MyList<string>();
 
@@ -1435,7 +1540,7 @@ namespace MyListTest
 
             MyList<string> result = stringList1.Zip(stringList2);
 
-            CollectionAssert.AreEqual(empty, result);
+            Assert.AreEqual(empty, result);
         }
         [TestMethod]
         public void SuccessfulObjZip()
@@ -1469,7 +1574,10 @@ namespace MyListTest
 
             MyList<Person> result = objList1.Zip(objList2);
 
-            CollectionAssert.AreEqual(people, result);
+            for(int i = 0; i<people.Length; i++)
+            {
+                Assert.AreEqual(people[i], result[i]);
+            }
         }
     }
 }

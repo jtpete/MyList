@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace MyList
 {
-    class MyList
+    public class MyList<T>
     {
+        private T[] myList = new T[10];
+        public T this[int i] { get { return myList[i]; } set { myList[i] = value; } }
+
+        public void
     }
 }
