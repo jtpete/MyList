@@ -52,6 +52,125 @@ namespace MyList
         {
             return length;
         }
+        public static MyList<T> operator +(MyList<T> list1, MyList<T> list2)
+        {
+            MyList<T> newList = new MyList<T>();
+
+            if (list1.Length != 0)
+            {
+                for (int i = 0; i < list1.Length; i++)
+                    newList.Add(list1[i]);
+            }
+            if (list2.Length != 0)
+            {
+                for (int i = 0; i < list2.Length; i++)
+                    newList.Add(list2[i]);
+            }
+            return newList;
+        }
+        public static MyList<T> operator -(MyList<T> list1, MyList<T> list2)
+        {
+            MyList<T> newList = new MyList<T>();
+            MyList<T> removeValues = new MyList<T>();
+
+            if (list2.Length != 0)
+            {
+                if (list1.Length != 0)
+                {
+                    for (int i = 0; i < list2.Length; i++)
+                    {
+                        for (int j = 0; j < list1.Length; j++)
+                        {
+                            if (list2[i].Equals(list1[j]))
+                            {
+                                removeValues.Add(list2[i]);
+                                j = list1.Length;
+                            }
+                        }
+                    }
+                }
+            }
+            if (list1.Length != 0 && removeValues.Length != 0)
+            {
+                for (int i = 0; i < list1.Length; i++)
+                {
+                    bool addThis = true;
+                    for (int j = 0; j < removeValues.Length; j++)
+                    {
+                        if (list1[i].Equals(removeValues[j]))
+                        {
+                            addThis = false;
+                            j = removeValues.Length;
+                        }
+                    }
+                    if (addThis)
+                        newList.Add(list1[i]);
+                }
+            }
+            else if (list1.Length != 0 && removeValues.Length == 0)
+            {
+                for (int i = 0; i < list1.Length; i++)
+                    newList.Add(list1[i]);
+            }
+
+            return newList;
+        }
+        public override string ToString()
+        {
+            string listString = ""; 
+            if (myList.Length != 0)
+                for (int i = 0; i < myList.Length; i++)
+                    listString = TakeValuesToString();
+
+            return listString;
+        }
+        private string TakeValuesToString()
+        {
+            string myString = "";
+            for(int i = 0; i < myList.Length; i++)
+            {
+                myString += myList[i];
+            }
+            return myString;
+        }
+        public MyList<T> Zip(MyList<T> zipList)
+        {
+            MyList<T> newList = new MyList<T>();
+
+            if(myList.Length != 0 && !zipList.Equals(0))
+            {
+                if(myList.Length >= zipList.Length)
+                {
+                    for(int i = 0; i < myList.Length; i++)
+                    {
+                        newList.Add(myList[i]);
+                        if (i < zipList.Length)
+                           newList.Add(zipList[i]);
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < zipList.Length; i++)
+                    {
+                        if(i < myList.Length)
+                            newList.Add(myList[i]);
+                        newList.Add(zipList[i]);
+                    }
+                }
+            }
+            else if (myList.Length != 0 && zipList.Equals(0))
+            {
+                for (int i = 0; i < myList.Length; i++)
+                    newList.Add(myList[i]);
+            }
+            else if (myList.Length == 0 && !zipList.Equals(0))
+            {
+                for (int i = 0; i < zipList.Length; i++)
+                    newList.Add(zipList[i]);
+            }
+            return newList;
+
+        }
     }
 }
 

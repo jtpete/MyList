@@ -1,0 +1,1 @@
+<Playlist Version="1.0"><Add Test="MyListTest.UnitTestMyList.SingleIntToString" /><Add Test="MyListTest.UnitTestMyList.SingleObjToString" /><Add Test="MyListTest.UnitTestMyList.EmptyListIntToString" /></Playlist>
