@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyListTest
+namespace MyListTest 
 {
-    public class Person
+    public class Person : IComparable<Person>
     {
         private string name;
         public string Name { get { return name; } set { name = value; } }
@@ -22,6 +22,16 @@ namespace MyListTest
             this.name = name;
             this.age = age;
             this.hairColor = hairColor;
+        }
+        int IComparable<Person>.CompareTo(Person aPerson)
+        {
+            if (aPerson == null) return 1;
+
+            if(aPerson.Name == this.Name)
+            {
+                return this.Age.CompareTo(aPerson.Age);
+            }
+            return this.Name.CompareTo(aPerson.Name);
         }
     }
 }

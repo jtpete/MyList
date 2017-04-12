@@ -1579,5 +1579,150 @@ namespace MyListTest
                 Assert.AreEqual(people[i], result[i]);
             }
         }
+
+
+        //Testing Iteration 
+        [TestMethod]
+        public void IterateIntList()
+        {
+            int[] numbers = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 };
+
+            MyList<int> intList = new MyList<int>();
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                intList.Add(numbers[i]);
+            }
+
+            MyList<int> result = new MyList<int>();
+
+            foreach (int intItem in intList)
+                result.Add(intItem);
+
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                Assert.AreEqual(numbers[i], result[i]);
+            }
+        }
+        [TestMethod]
+        public void IterateObjList()
+        {
+            Person person1 = new MyListTest.Person("Jason", 40, "Black");
+            Person person2 = new MyListTest.Person("Michelle", 39, "Blond");
+            Person person3 = new MyListTest.Person("Lucas", 12, "Brown");
+            Person person4 = new MyListTest.Person("Carter", 10, "Black");
+            Person person5 = new MyListTest.Person("Brook", 7, "Blond");
+            Person person6 = new MyListTest.Person("Pat", 80, "Purple");
+            Person person7 = new MyListTest.Person("Frank", 39, "Blond");
+            Person person8 = new MyListTest.Person("Jonathan", 21, "Brown");
+            Person person9 = new MyListTest.Person("Bob", 10, "Black");
+            Person person10 = new MyListTest.Person("Darcy", 70, "Blond");
+            Person[] people = new Person[] { person1, person2, person3, person5, person4, person10, person6, person7, person8, person9 };
+
+            MyList<Person> objList = new MyList<Person>();
+            for (int i = 0; i < people.Length; i++)
+            {
+                objList.Add(people[i]);
+            }
+
+            MyList<Person> result = new MyList<Person>();
+            foreach (Person intItem in objList)
+                result.Add(intItem);
+
+            for (int i = 0; i < people.Length; i++)
+            {
+                Assert.AreEqual(people[i], result[i]);
+            }
+        }
+        [TestMethod]
+        public void IterateStringList()
+        {
+            string[] names = new string[] { "Michelle", "Jason", "Patricia", "Bob", "Lucas", "Frank", "Mike", "Jose" };
+
+            MyList<string> stringList = new MyList<string>();
+            for (int i = 0; i < names.Length; i++)
+            {
+                stringList.Add(names[i]);
+            }
+
+            MyList<string> result = new MyList<string>();
+            foreach (string intItem in stringList)
+                result.Add(intItem);
+
+            for (int i = 0; i < names.Length; i++)
+            {
+                Assert.AreEqual(names[i], result[i]);
+            }
+        }
+
+        //Testing Sorting
+        [TestMethod]
+        public void SortIntList()
+        {
+            int[] orderedNumbers = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 38, 49, 58, 100, 123, 345, 654, 876, 987  };
+            int[] unorderedNumbers = new int[] { 100, 12, 345, 49, 5, 6, 876, 8, 987, 10, 11, 2, 13, 14, 38, 16, 15, 4, 58, 1, 123, 3, 654, 7, 9 };
+
+            MyList<int> intList = new MyList<int>();
+            for (int i = 0; i < unorderedNumbers.Length; i++)
+            {
+                intList.Add(unorderedNumbers[i]);
+            }
+
+            intList.Sort();
+
+            for (int i = 0; i < orderedNumbers.Length; i++)
+            {
+                Assert.AreEqual(orderedNumbers[i], intList[i]);
+            }
+        }
+        [TestMethod]
+        public void SortObjList()
+        {
+            Person person1 = new MyListTest.Person("Jason", 40, "Black");
+            Person person2 = new MyListTest.Person("Michelle", 39, "Blond");
+            Person person3 = new MyListTest.Person("Lucas", 12, "Brown");
+            Person person4 = new MyListTest.Person("Carter", 10, "Black");
+            Person person5 = new MyListTest.Person("Brook", 7, "Blond");
+            Person person6 = new MyListTest.Person("Pat", 80, "Purple");
+            Person person7 = new MyListTest.Person("Frank", 39, "Blond");
+            Person person8 = new MyListTest.Person("Jonathan", 21, "Brown");
+            Person person9 = new MyListTest.Person("Bob", 10, "Black");
+            Person person10 = new MyListTest.Person("Darcy", 70, "Blond");
+            Person[] people = new Person[] { person1, person2, person3, person5, person4, person10, person6, person7, person8, person9 };
+
+            MyList<Person> objList = new MyList<Person>();
+            for (int i = 0; i < people.Length; i++)
+            {
+                objList.Add(people[i]);
+            }
+
+            Array.Sort(people);
+            objList.Sort();
+
+            for (int i = 0; i < people.Length; i++)
+            {
+                Assert.AreEqual(people[i], objList[i]);
+            }
+        }
+        [TestMethod]
+        public void SortStringList()
+        {
+            string[] unorderedNames = new string[] { "Michelle", "Jason", "Patricia", "Bob", "Lucas", "Frank", "Mike", "Jose", "Freddy", "Adam", "Zebra", "Willy", "Robert", "Amanda", "Celery" };
+
+            MyList<string> stringList = new MyList<string>();
+            for (int i = 0; i < unorderedNames.Length; i++)
+            {
+                stringList.Add(unorderedNames[i]);
+            }
+
+            Array.Sort(unorderedNames);
+
+            stringList.Sort();
+
+            for (int i = 0; i < unorderedNames.Length; i++)
+            {
+                Assert.AreEqual(unorderedNames[i], stringList[i]);
+            }
+        }
     }
+
 }

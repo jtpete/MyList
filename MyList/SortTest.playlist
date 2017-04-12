@@ -1,0 +1,1 @@
+<Playlist Version="1.0"><Add Test="MyListTest.UnitTestMyList.SortIntList" /><Add Test="MyListTest.UnitTestMyList.SortStringList" /><Add Test="MyListTest.UnitTestMyList.SortObjList" /></Playlist>
