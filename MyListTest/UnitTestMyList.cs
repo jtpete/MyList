@@ -123,132 +123,132 @@ namespace MyListTest
         }
 
 
-        ////Testing Remove Method
-        //[TestMethod]
-        //public void SuccessfulSingleIntRemove()
-        //{
-        //    MyList<int> intList = new MyList<int>();
-        //    int item = 1;
-        //    intList.Add(item);
-        //    intList.Add(2);
-        //    intList.Add(3);
-        //    intList.Add(4);
-        //    intList.Add(5);
+        //Testing Remove Method
+        [TestMethod]
+        public void SuccessfulSingleIntRemove()
+        {
+            MyList<int> intList = new MyList<int>();
+            int item = 1;
+            intList.Add(item);
+            intList.Add(2);
+            intList.Add(3);
+            intList.Add(4);
+            intList.Add(5);
 
-        //    int result = intList.Remove();
+            bool result = intList.Remove();
 
-        //    Assert.AreEqual(item, result);
-        //}
-        //[TestMethod]
-        //public void SuccessfulOnlyIntRemove()
-        //{
-        //    MyList<int> intList = new MyList<int>();
-        //    int item = 1;
-        //    intList.Add(item);
+            Assert.IsTrue(result);
+        }
+        [TestMethod]
+        public void SuccessfulOnlyIntRemove()
+        {
+            MyList<int> intList = new MyList<int>();
+            int item = 1;
+            intList.Add(item);
 
-        //    int result = intList.Remove();
+            bool result = intList.Remove();
 
-        //    Assert.AreEqual(item, result);
-        //}
-        //[TestMethod]
-        //public void SuccessfulSingleStringRemove()
-        //{
-        //    MyList<string> stringList = new MyList<string>();
-        //    string item = "Hello";
-        //    stringList.Add(item);
-        //    stringList.Add("World");
-        //    stringList.Add("Fun");
-        //    stringList.Add("Challenge");
-        //    stringList.Add("Broken");
+            Assert.IsTrue(result);
+        }
+        [TestMethod]
+        public void SuccessfulSingleStringRemove()
+        {
+            MyList<string> stringList = new MyList<string>();
+            string item = "Hello";
+            stringList.Add(item);
+            stringList.Add("World");
+            stringList.Add("Fun");
+            stringList.Add("Challenge");
+            stringList.Add("Broken");
 
-        //    string result = stringList.Remove();
+            bool result = stringList.Remove();
 
-        //    Assert.AreEqual(item, result);
-        //}
-        //[TestMethod]
-        //public void SuccessfulOnlyStringRemove()
-        //{
-        //    MyList<string> stringList = new MyList<string>();
-        //    string item = "Hello";
-        //    stringList.Add(item);
+            Assert.IsTrue(result);
+        }
+        [TestMethod]
+        public void SuccessfulOnlyStringRemove()
+        {
+            MyList<string> stringList = new MyList<string>();
+            string item = "Hello";
+            stringList.Add(item);
 
-        //    string result = stringList.Remove();
+            bool result = stringList.Remove();
 
-        //    Assert.AreEqual(item, result);
-        //}
-        //[TestMethod]
-        //public void SuccessfulSingleObjRemove()
-        //{
-        //    MyList<Person> objList = new MyList<Person>();
-        //    Person person1 = new MyListTest.Person("Jason", 40, "Black");
-        //    Person person2 = new MyListTest.Person("Michelle", 39, "Blond");
-        //    Person person3 = new MyListTest.Person("Lucas", 12, "Brown");
-        //    Person person4 = new MyListTest.Person("Carter", 10, "Black");
-        //    Person person5 = new MyListTest.Person("Brook", 7, "Blond");
-        //    Person[] item = new Person[] { person1, person2, person3, person4, person5 };
-        //    for (int i = 0; i < 5; i++)
-        //    {
-        //        objList.Add(item);
-        //    }
+            Assert.IsTrue(result);
+        }
+        [TestMethod]
+        public void SuccessfulSingleObjRemove()
+        {
+            MyList<Person> objList = new MyList<Person>();
+            Person person1 = new MyListTest.Person("Jason", 40, "Black");
+            Person person2 = new MyListTest.Person("Michelle", 39, "Blond");
+            Person person3 = new MyListTest.Person("Lucas", 12, "Brown");
+            Person person4 = new MyListTest.Person("Carter", 10, "Black");
+            Person person5 = new MyListTest.Person("Brook", 7, "Blond");
+            Person[] item = new Person[] { person1, person2, person3, person4, person5 };
+            for (int i = 0; i < 5; i++)
+            {
+                objList.Add(item[i]);
+            }
 
-        //    Person result = objList.Remove();
+            bool result = objList.Remove();
 
-        //    Assert.AreEqual(person1, result);
-        //}
-        //[TestMethod]
-        //public void SuccessfulOnlyObjRemove()
-        //{
-        //    MyList<Person> objList = new MyList<Person>();
-        //    Person person1 = new MyListTest.Person("Jason", 40, "Black");
-        //    objList.Add(person1);
+            Assert.IsTrue(result);
+        }
+        [TestMethod]
+        public void SuccessfulOnlyObjRemove()
+        {
+            MyList<Person> objList = new MyList<Person>();
+            Person person1 = new MyListTest.Person("Jason", 40, "Black");
+            objList.Add(person1);
 
-        //    Person result = objList.Remove();
+            bool result = objList.Remove();
 
-        //    Assert.AreEqual(person1, result);
-        //}
-        //[TestMethod]
-        //public void SuccessfulShiftingIntRemove()
-        //{
-        //    MyList<int> intList = new MyList<int>();
-        //    int item = 2;
-        //    intList.Add(1);
-        //    intList.Add(item);
-        //    intList.Add(3);
-        //    intList.Add(4);
-        //    intList.Add(5);
+            Assert.IsTrue(result);
+        }
+        [TestMethod]
+        public void SuccessfulShiftingIntRemove()
+        {
+            MyList<int> intList = new MyList<int>();
+            int item = 2;
+            intList.Add(1);
+            intList.Add(item);
+            intList.Add(3);
+            intList.Add(4);
+            intList.Add(5);
 
-        //    int result = intList.Remove();
+            bool result = intList.Remove();
 
-        //    Assert.AreEqual(item, intList[0]);
-        //}
-        //[TestMethod]
-        //public void EmptyListIntRemove()
-        //{
-        //    MyList<int> intList = new MyList<int>();
+            Assert.AreEqual(item, intList[0]);
+        }
+        [TestMethod]
+        public void EmptyListIntRemove()
+        {
+            MyList<int> intList = new MyList<int>();
 
 
-        //    bool result = intList.Remove();
+            bool result = intList.Remove();
 
-        //    Assert.IsFalse(result);
-        //}
-        //[TestMethod]
-        //public void SuccessfulStressIntRemove()
-        //{
-        //    MyList<int> intList = new MyList<int>();
-        //    int[] item = new int[10000];
-        //    for (int i = 0; i < item.Length; i++)
-        //    {
-        //        item[i] = i;
-        //    }
+            Assert.IsFalse(result);
+        }
+        [TestMethod]
+        public void SuccessfulStressIntRemove()
+        {
+            MyList<int> intList = new MyList<int>();
+            int[] item = new int[10000];
+            for (int i = 0; i < item.Length; i++)
+            {
+                item[i] = i;
+            }
 
-        //    for (int i = 0; i < item.Length; i++)
-        //    {
-        //        intList.Add(item);
-        //    }
+            for (int i = 0; i < item.Length; i++)
+            {
+                intList.Add(item[i]);
+            }
 
-        //    int result = intList.Remove();
-        //    Assert.AreEqual(item[0], result);
-        //}
+            bool result = intList.Remove();
+            Assert.IsTrue(result);
+        }
 
 
         ////Testing ToString Method
@@ -1185,106 +1185,106 @@ namespace MyListTest
         //    Assert.IsNull(result);
         //}
 
-        ////Testing Count Method
-        //[TestMethod]
-        //public void SuccessfulIntCount()
-        //{
-        //    int size = 100;
-        //    MyList<int> intList = new MyList<int>();
-        //    for (int i = 0; i < size; i++)
-        //    {
-        //        intList.Add(i);
-        //    }
+        //Testing Count Method
+        [TestMethod]
+        public void SuccessfulIntCount()
+        {
+            int size = 100;
+            MyList<int> intList = new MyList<int>();
+            for (int i = 0; i < size; i++)
+            {
+                intList.Add(i);
+            }
 
-        //    int result = intList.Count();
+            int result = intList.Count();
 
-        //    Assert.AreEqual(size, result);
-        //}
-        //[TestMethod]
-        //public void SuccessfulIntStressCount()
-        //{
-        //    int size = 100000;
-        //    MyList<int> intList = new MyList<int>();
-        //    for (int i = 0; i < size; i++)
-        //    {
-        //        intList.Add(i);
-        //    }
+            Assert.AreEqual(size, result);
+        }
+        [TestMethod]
+        public void SuccessfulIntStressCount()
+        {
+            int size = 100000;
+            MyList<int> intList = new MyList<int>();
+            for (int i = 0; i < size; i++)
+            {
+                intList.Add(i);
+            }
 
-        //    int result = intList.Count();
+            int result = intList.Count();
 
-        //    Assert.AreEqual(size, result);
-        //}
-        //[TestMethod]
-        //public void SuccessfulIntEmptyCount()
-        //{
-        //    int size = 0;
-        //    MyList<int> intList = new MyList<int>();
+            Assert.AreEqual(size, result);
+        }
+        [TestMethod]
+        public void SuccessfulIntEmptyCount()
+        {
+            int size = 0;
+            MyList<int> intList = new MyList<int>();
 
-        //    int result = intList.Count();
+            int result = intList.Count();
 
-        //    Assert.AreEqual(size, result);
-        //}
-        //[TestMethod]
-        //public void SuccessfulStringCount()
-        //{
-        //    string[] names = new string[] { "Jason", "Bob", "Michelle", "Lucas", "Frank", "Mike", "Jose", "Patricia" };
-        //    MyList<string> stringList = new MyList<string>();
-        //    for (int i = 0; i < names.Length; i++)
-        //    {
-        //        stringList.Add(names[i]);
-        //    }
+            Assert.AreEqual(size, result);
+        }
+        [TestMethod]
+        public void SuccessfulStringCount()
+        {
+            string[] names = new string[] { "Jason", "Bob", "Michelle", "Lucas", "Frank", "Mike", "Jose", "Patricia" };
+            MyList<string> stringList = new MyList<string>();
+            for (int i = 0; i < names.Length; i++)
+            {
+                stringList.Add(names[i]);
+            }
 
-        //    int result = stringList.Count();
+            int result = stringList.Count();
 
-        //    Assert.AreEqual(names.Length, result);
-        //}
-        //[TestMethod]
-        //public void SuccessfulStringEmptyCount()
-        //{
-        //    int size = 0;
-        //    MyList<string> stringList = new MyList<string>();
+            Assert.AreEqual(names.Length, result);
+        }
+        [TestMethod]
+        public void SuccessfulStringEmptyCount()
+        {
+            int size = 0;
+            MyList<string> stringList = new MyList<string>();
 
 
-        //    int result = stringList.Count();
+            int result = stringList.Count();
 
-        //    Assert.AreEqual(size, result);
-        //}
-        //[TestMethod]
-        //public void SuccessfulObjCount()
-        //{
-        //    Person person1 = new MyListTest.Person("Jason", 40, "Black");
-        //    Person person2 = new MyListTest.Person("Michelle", 39, "Blond");
-        //    Person person3 = new MyListTest.Person("Lucas", 12, "Brown");
-        //    Person person4 = new MyListTest.Person("Carter", 10, "Black");
-        //    Person person5 = new MyListTest.Person("Brook", 7, "Blond");
-        //    Person person6 = new MyListTest.Person("Pat", 80, "Purple");
-        //    Person person7 = new MyListTest.Person("Frank", 39, "Blond");
-        //    Person person8 = new MyListTest.Person("Jonathan", 21, "Brown");
-        //    Person person9 = new MyListTest.Person("Bob", 10, "Black");
-        //    Person person10 = new MyListTest.Person("Darcy", 70, "Blond");
-        //    Person[] people = new Person[] { person1, person2, person3, person4, person5, person6, person7, person8, person9, person10 };
+            Assert.AreEqual(size, result);
+        }
+        [TestMethod]
+        public void SuccessfulObjCount()
+        {
+            Person person1 = new MyListTest.Person("Jason", 40, "Black");
+            Person person2 = new MyListTest.Person("Michelle", 39, "Blond");
+            Person person3 = new MyListTest.Person("Lucas", 12, "Brown");
+            Person person4 = new MyListTest.Person("Carter", 10, "Black");
+            Person person5 = new MyListTest.Person("Brook", 7, "Blond");
+            Person person6 = new MyListTest.Person("Pat", 80, "Purple");
+            Person person7 = new MyListTest.Person("Frank", 39, "Blond");
+            Person person8 = new MyListTest.Person("Jonathan", 21, "Brown");
+            Person person9 = new MyListTest.Person("Bob", 10, "Black");
+            Person person10 = new MyListTest.Person("Darcy", 70, "Blond");
+            Person[] people = new Person[] { person1, person2, person3, person4, person5, person6, person7, person8, person9, person10 };
 
-        //    MyList<Person> objList = new MyList<Person>();
-        //    for (int i = 0; i < people.Length; i++)
-        //    {
-        //        objList.Add(people[i]);
-        //    }
+            MyList<Person> objList = new MyList<Person>();
+            for (int i = 0; i < people.Length; i++)
+            {
+                objList.Add(people[i]);
+            }
 
-        //    int result = objList.Count();
+            int result = objList.Count();
 
-        //    Assert.AreEqual(people.Length, result);
-        //}
-        //[TestMethod]
-        //public void SuccessfulObjEmptyCount()
-        //{
+            Assert.AreEqual(people.Length, result);
+        }
+        [TestMethod]
+        public void SuccessfulObjEmptyCount()
+        {
 
-        //    int size = 0;
-        //    MyList<Person> objList = new MyList<Person>();
+            int size = 0;
+            MyList<Person> objList = new MyList<Person>();
 
-        //    int result = objList.Count();
+            int result = objList.Count();
 
-        //    Assert.AreEqual(size, result);
-        //}
+            Assert.AreEqual(size, result);
+        }
 
 
         ////Testing Zip Method
