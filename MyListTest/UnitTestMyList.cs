@@ -9,6 +9,16 @@ namespace MyListTest
     {
         // Testing Add Method
         [TestMethod]
+        public void SuccessfulConstructor()
+        {
+            MyList<int> intList = new MyList<int>();
+            int item = 0;
+
+            Assert.AreEqual(item, intList.Length);
+        }
+
+        // Testing Add Method
+        [TestMethod]
         public void SuccessfulSingleIntAdd()
         {
             MyList<int> intList = new MyList<int>();
@@ -1721,6 +1731,96 @@ namespace MyListTest
             for (int i = 0; i < unorderedNames.Length; i++)
             {
                 Assert.AreEqual(unorderedNames[i], stringList[i]);
+            }
+        }
+        [TestMethod]
+        public void SortEmpyList()
+        {
+            MyList<int> empty = new MyList<int>();
+
+            MyList<int> intList = new MyList<int>();
+
+            intList.Sort();
+
+            Assert.AreEqual(empty.Length, intList.Length);
+        }
+        [TestMethod]
+        public void SortIntOneInList()
+        {
+            int[] orderedNumbers = new int[] { 1};
+
+            MyList<int> intList = new MyList<int>();
+            for (int i = 0; i < orderedNumbers.Length; i++)
+            {
+                intList.Add(orderedNumbers[i]);
+            }
+
+            intList.Sort();
+
+            for (int i = 0; i < orderedNumbers.Length; i++)
+            {
+                Assert.AreEqual(orderedNumbers[i], intList[i]);
+            }
+        }
+        [TestMethod]
+        public void SortIntTwoInList()
+        {
+            int[] orderedNumbers = new int[] { 1, 34 };
+            int[] unorderedNumbers = new int[] { 34, 1 };
+
+
+            MyList<int> intList = new MyList<int>();
+            for (int i = 0; i < unorderedNumbers.Length; i++)
+            {
+                intList.Add(unorderedNumbers[i]);
+            }
+
+            intList.Sort();
+
+            for (int i = 0; i < orderedNumbers.Length; i++)
+            {
+                Assert.AreEqual(orderedNumbers[i], intList[i]);
+            }
+        }
+        [TestMethod]
+        public void SortObjTwoInList()
+        {
+            Person person1 = new MyListTest.Person("Jason", 40, "Black");
+            Person person2 = new MyListTest.Person("Michelle", 39, "Blond");
+            Person[] unorderedPeople = new Person[] { person2, person1};
+            Person[] orderedPeople = new Person[] { person1, person2 };
+
+
+            MyList<Person> objList = new MyList<Person>();
+            for (int i = 0; i < unorderedPeople.Length; i++)
+            {
+                objList.Add(unorderedPeople[i]);
+            }
+
+            Array.Sort(orderedPeople);
+            objList.Sort();
+
+            for (int i = 0; i < orderedPeople.Length; i++)
+            {
+                Assert.AreEqual(orderedPeople[i], objList[i]);
+            }
+        }
+        [TestMethod]
+        public void SortObjOneInList()
+        {
+            Person person1 = new MyListTest.Person("Jason", 40, "Black");
+            Person[] orderedPeople = new Person[] { person1 };
+
+
+            MyList<Person> objList = new MyList<Person>();
+            
+            objList.Add(person1);
+
+            objList.Sort();
+
+            for (int i = 0; i < orderedPeople.Length; i++)
+            {
+                Assert.AreEqual(orderedPeople[i], objList[i]);
             }
         }
     }

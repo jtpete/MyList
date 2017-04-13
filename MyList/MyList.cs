@@ -185,9 +185,9 @@ namespace MyList
         }
         public void Sort()
         {
-            T temp = myList[0];
+            T temp;
 
-            if (myList.Length > 2)
+            if (myList.Length > 1)
             {
                 for(int i = 0; i < myList.Length; i++)
                 {
