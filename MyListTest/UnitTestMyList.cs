@@ -7,7 +7,7 @@ namespace MyListTest
     [TestClass]
     public class UnitTestMyList
     {
-        // Testing Add Method
+        // Testing Constructor
         [TestMethod]
         public void SuccessfulConstructor()
         {

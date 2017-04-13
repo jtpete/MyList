@@ -13,11 +13,13 @@ namespace MyList
         public T this[int i] { get { return myList[i]; } set { myList[i] = value; } }
         private int length;
         public int Length { get { return length; } set { length = value; } }
+        private int size;
 
         public MyList()
         {
-            myList = new T[0];
+            myList = new T[10];
             length = 0;
+            size = 10;
         }
         public IEnumerator<T> GetEnumerator()
         {
@@ -32,33 +34,33 @@ namespace MyList
         }
         public void Add(T item)
         {
-            ExpandMyList(ref myList, length + 1);
+            if(length == size)
+                ExpandMyList(ref myList, length + 10);
+            myList[length] = item;
             length += 1;
-            myList[length - 1] = item;
         }
         private void ExpandMyList(ref T[] oldList, int newSize)
         {
             T[] newList = new T[newSize];
-            for (int i = 0; i < newSize - 1; i++)
+            for (int i = 0; i < length; i++)
                 newList[i] = oldList[i];
             oldList = newList;
+            size = newSize;
         }
         public bool Remove()
         {
             if (length != 0)
             {
-                ReduceMyList(ref myList, length - 1);
+                ShiftMyList();
                 length -= 1;
                 return true;
             }
             return false;
         }
-        private void ReduceMyList(ref T[] oldList, int newSize)
+        private void ShiftMyList()
         {
-            T[] newList = new T[newSize];
-            for (int i = 0; i < newSize - 1; i++)
-                newList[i] = oldList[i + 1];
-            oldList = newList;
+            for (int i = 0; i < length - 1; i++)
+                myList[i] = myList[i + 1];
         }
         public int Count()
         {
@@ -130,8 +132,8 @@ namespace MyList
         public override string ToString()
         {
             string listString = "";
-            if (myList.Length != 0)
-                for (int i = 0; i < myList.Length; i++)
+            if (length != 0)
+                for (int i = 0; i < length; i++)
                     listString = TakeValuesToString();
 
             return listString;
@@ -139,7 +141,7 @@ namespace MyList
         private string TakeValuesToString()
         {
             string myString = "";
-            for (int i = 0; i < myList.Length; i++)
+            for (int i = 0; i < length; i++)
             {
                 myString += myList[i];
             }
@@ -149,11 +151,11 @@ namespace MyList
         {
             MyList<T> newList = new MyList<T>();
 
-            if (myList.Length != 0 && !zipList.Equals(0))
+            if (length != 0 && !zipList.Equals(0))
             {
-                if (myList.Length >= zipList.Length)
+                if (length >= zipList.Length)
                 {
-                    for (int i = 0; i < myList.Length; i++)
+                    for (int i = 0; i < length; i++)
                     {
                         newList.Add(myList[i]);
                         if (i < zipList.Length)
@@ -164,18 +166,18 @@ namespace MyList
                 {
                     for (int i = 0; i < zipList.Length; i++)
                     {
-                        if (i < myList.Length)
+                        if (i < length)
                             newList.Add(myList[i]);
                         newList.Add(zipList[i]);
                     }
                 }
             }
-            else if (myList.Length != 0 && zipList.Equals(0))
+            else if (length != 0 && zipList.Equals(0))
             {
-                for (int i = 0; i < myList.Length; i++)
+                for (int i = 0; i < length; i++)
                     newList.Add(myList[i]);
             }
-            else if (myList.Length == 0 && !zipList.Equals(0))
+            else if (length == 0 && !zipList.Equals(0))
             {
                 for (int i = 0; i < zipList.Length; i++)
                     newList.Add(zipList[i]);
@@ -187,11 +189,11 @@ namespace MyList
         {
             T temp;
 
-            if (myList.Length > 1)
+            if (length > 1)
             {
-                for(int i = 0; i < myList.Length; i++)
+                for(int i = 0; i < length; i++)
                 {
-                    for(int j = 0; j < myList.Length-1; j++)
+                    for(int j = 0; j < length-1; j++)
                     {
                         if (Comparer<T>.Default.Compare(myList[j], myList[j+1]) >= 0) 
                         {
